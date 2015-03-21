@@ -1,0 +1,2 @@
+defmodule PhoenixPubSubPostgres do
+end
