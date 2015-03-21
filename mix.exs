@@ -25,6 +25,8 @@ defmodule PhoenixPubSubPostgres.Mixfile do
   #
   # Type `mix help deps` for more examples and options
   defp deps do
-    []
+    [{:phoenix, github: "phoenixframework/phoenix", override: true},
+     {:postgrex, ">= 0.0.0"},
+     {:poolboy, "~> 1.4.2"}]
   end
 end
