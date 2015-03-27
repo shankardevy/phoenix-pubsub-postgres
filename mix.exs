@@ -3,7 +3,13 @@ defmodule PhoenixPubSubPostgres.Mixfile do
 
   def project do
     [app: :phoenix_pubsub_postgres,
-     version: "0.0.1",
+     version: "0.0.2",
+     description: "Postgresql PubSub adapter for Phoenix apps",
+     package: {
+     contributors: ["Shankar Dhanasekaran - (shankardevy)"],
+       licenses: ["MIT"],
+       links: %{"demo" => "http://pgchat.opendrops.com", "github" => "https://github.com/opendrops/phoenix-pubsub-postgres"}  
+     }
      elixir: "~> 1.0",
      deps: deps]
   end
@@ -12,7 +18,7 @@ defmodule PhoenixPubSubPostgres.Mixfile do
   #
   # Type `mix help compile.app` for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :postgrex, :poolboy]]
   end
 
   # Dependencies can be Hex packages:
