@@ -27,7 +27,7 @@ defmodule PhoenixPubSubPostgres.Server do
       bin_msg = :erlang.term_to_binary(postgres_msg) |> :base64.encode
       case GenServer.call(worker_pid, :conn) do
         {:ok, conn_pid} ->
-          case Postgrex.Connection.query(conn_pid, "NOTIFY #{namespace}, '#{bin_msg}'", []) do
+          case Postgrex.Connection.query(conn_pid, "NOTIFY $1, $2", [namespace, bin_msg]) do
             {:error, reason} -> {:error, reason}
             {:error, kind, reason, stack} ->
               :erlang.raise(kind, reason, stack)
